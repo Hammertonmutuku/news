@@ -11,7 +11,7 @@ public interface EmployeesDao {
     void addEmployeesToDepartments(Employees employees, Departments departments);
     //read
     List<Employees> getAll();
-
+    List<Departments>getAllDepartmentsForEmployees(int department_id);
 
 
     //update
