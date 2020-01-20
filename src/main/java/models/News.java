@@ -14,4 +14,20 @@ public class News {
     public News(String department_news) {
         this.department_news = department_news;
     }
+
+    public String getGeneral_news() {
+        return general_news;
+    }
+
+    public void setGeneral_news(String general_news) {
+        this.general_news = general_news;
+    }
+
+    public String getDepartment_news() {
+        return department_news;
+    }
+
+    public void setDepartment_news(String department_news) {
+        this.department_news = department_news;
+    }
 }
