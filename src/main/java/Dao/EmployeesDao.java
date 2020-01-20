@@ -1,5 +1,6 @@
 package Dao;
 
+import models.Departments;
 import models.Employees;
 
 import java.util.List;
@@ -7,9 +8,10 @@ import java.util.List;
 public interface EmployeesDao {
     //create
     void add(Employees employees);
-
+    void addEmployeesToDepartments(Employees employees, Departments departments);
     //read
     List<Employees> getAll();
+
 
 
     //update

@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/sql2oEmployeesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/sql2oEmployeesDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/sql2oNewsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/sql2oNewsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/News.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/create.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

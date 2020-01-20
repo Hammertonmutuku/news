@@ -13,9 +13,21 @@ CREATE TABLE IF NOT EXISTS Employees (
  employee_id int;
  role VARCHAR;
  department VARCHAR
+
+CREATE TABLE IF NOT EXISTS Departments_employee (
+id int PRIMARY KEY auto_increment,
+department_id INTEGER,
+ employee_id
+
 );
 
 CREATE TABLE IF NOT EXISTS News (
  general_news VARCHAR;
  department_news VARCHAR
+);
+
+CREATE TABLE IF NOT EXISTS Department_news (
+id int  Primary key auto_increment
+department_id INTEGER,
+d INTEGER
 );
