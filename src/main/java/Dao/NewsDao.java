@@ -12,6 +12,7 @@ public interface NewsDao {
     List<News> getAll();
 
 
+
     //update
     //void update(String general_news, String department_news);
 

@@ -2,6 +2,7 @@ package Dao;
 
 import models.Departments;
 import models.Employees;
+import models.News;
 
 import java.util.List;
 
@@ -9,10 +10,12 @@ public interface DepartmentsDao {
     //create
     void add(Departments departments);
     void addDepartmentsToEmployees(Departments departments, Employees employees);
+    void addDepartmentsToNews(Departments departments, News news);
 
     //read
     List<Departments> getAll();
-    List<Employees>GetAllEmployees(int empoleyees_id);
+    List<Employees>GetAllEmployees(int employees_id);
+    List<News>GetAllNewsByDepartments (String Department_news);
 
     //update
     //void update(String department_name, String department_description, int number_of_employees);

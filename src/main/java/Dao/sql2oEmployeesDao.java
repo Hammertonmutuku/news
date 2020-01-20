@@ -1,9 +1,12 @@
 package Dao;
 
+import models.Departments;
 import models.Employees;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class sql2oEmployeesDao implements EmployeesDao{
@@ -29,6 +32,17 @@ public class sql2oEmployeesDao implements EmployeesDao{
             return con.createQuery("SELECT * FROM employees")
                     .executeAndFetch(Employees.class);
         }
+    }
+
+    @Override
+    public void addEmployeesToDepartments(Employees employees, Departments departments) {
+
+    }
+
+    @Override
+    public List<Departments> getAllDepartmentsForEmployees (int department_id) {
+        List<Departments> departments = new ArrayList<>();
+        return departments;
     }
 
     /*@Override

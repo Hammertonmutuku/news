@@ -2,6 +2,7 @@ package Dao;
 
 import models.Departments;
 import models.Employees;
+import models.News;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -38,11 +39,21 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
     public void  addDepartmentsToEmployees(Departments departments, Employees employees) {
 
     }
+    @Override
+    public void addDepartmentsToNews(Departments departments, News news) {
+
+    }
 
     @Override
     public List <Employees> GetAllEmployees (int employees_id) {
         List <Employees> employees = new ArrayList<>();
         return employees;
+    }
+
+    @Override
+    public List<News> GetAllNewsByDepartments (String Department_news){
+       List <News> news = new ArrayList<>();
+       return news;
     }
    /* @Override
     public List<Departments> getAllDepartmentsByDepartments(int departments_name) {

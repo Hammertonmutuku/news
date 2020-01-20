@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="13c63de2-7787-4d53-8b5c-45b9e734adb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/EmployeesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/EmployeesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/DepartmentsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/DepartmentsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/sql2oDepartmentsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/sql2oDepartmentsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/sql2oEmployeesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/sql2oEmployeesDao.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
