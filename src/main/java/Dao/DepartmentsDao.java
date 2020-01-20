@@ -12,7 +12,7 @@ public interface DepartmentsDao {
 
 
     //update
-    void update(String department_name, String department_description, int number_of_employees);
+    //void update(String department_name, String department_description, int number_of_employees);
 
     //delete
     void deleteByDepartment_id(int department_id);

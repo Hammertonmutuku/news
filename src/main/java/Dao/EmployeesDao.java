@@ -13,7 +13,7 @@ public interface EmployeesDao {
 
 
     //update
-    void update(String employees_name, String position_in_company, int employee_id, String role, String department );
+   // void update(String employees_name, String position_in_company, int employee_id, String role, String department );
 
     //delete
     void deleteByEmployee_id(int employee_id);

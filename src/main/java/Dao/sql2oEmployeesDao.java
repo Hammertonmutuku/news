@@ -6,7 +6,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import java.util.List;
 
-public class sql2oEmployeesDao {
+public class sql2oEmployeesDao implements EmployeesDao{
     private final Sql2o sql2o;
     public sql2oEmployeesDao (Sql2o sql2o) {this.sql2o = sql2o; }
 
@@ -31,21 +31,21 @@ public class sql2oEmployeesDao {
         }
     }
 
-    @Override
+    /*@Override
     public List<Employees> getAllEmployeesByDepartments(int employees_Id) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM employees WHERE employees_Id = :employees_Id")
                     .addParameter("employees_Id", employees_Id)
                     .executeAndFetch(Employees.class);
         }
-    }
+    }*/
 
     @Override
-    public void deleteById(int id) {
-        String sql = "DELETE from employees WHERE id=:id";
+    public void deleteByEmployee_id(int employee_id) {
+        String sql = "DELETE from employees WHERE employee_id=:employee_id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("id", id)
+                    .addParameter("employee_id", employee_id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);

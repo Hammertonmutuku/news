@@ -6,7 +6,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import java.util.List;
 
-public class sql2oDepartmentsDao {
+public class sql2oDepartmentsDao implements DepartmentsDao {
     private final Sql2o sql2o;
     public sql2oDepartmentsDao (Sql2o sql2o) {this.sql2o = sql2o; }
 
@@ -31,21 +31,21 @@ public class sql2oDepartmentsDao {
         }
     }
 
-    @Override
-    public List<Departments> getAllDepartmentsByRestaurant(int departments_name) {
+   /* @Override
+    public List<Departments> getAllDepartmentsByDepartments(int departments_name) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM reviews WHERE departments_name = :departments_name")
                     .addParameter("departments_name", departments_name)
                     .executeAndFetch(Departments.class);
         }
-    }
+    }*/
 
     @Override
-    public void deleteById(int id) {
-        String sql = "DELETE from departments WHERE id=:id";
+    public void deleteByDepartment_id(int department_id) {
+        String sql = "DELETE from departments WHERE department_id=:department_id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("id", id)
+                    .addParameter("department_id", department_id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);
