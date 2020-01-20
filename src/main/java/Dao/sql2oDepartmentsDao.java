@@ -26,23 +26,23 @@ public class sql2oDepartmentsDao {
 
     public List<Departments> getAll() {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM reviews")
+            return con.createQuery("SELECT * FROM departments")
                     .executeAndFetch(Departments.class);
         }
     }
 
     @Override
-    public List<Departments> getAllReviewsByRestaurant(int restaurantId) {
+    public List<Departments> getAllDepartmentsByRestaurant(int departments_name) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM reviews WHERE restaurantId = :restaurantId")
-                    .addParameter("restaurantId", restaurantId)
+            return con.createQuery("SELECT * FROM reviews WHERE departments_name = :departments_name")
+                    .addParameter("departments_name", departments_name)
                     .executeAndFetch(Departments.class);
         }
     }
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE from reviews WHERE id=:id";
+        String sql = "DELETE from departments WHERE id=:id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
@@ -54,7 +54,7 @@ public class sql2oDepartmentsDao {
 
     @Override
     public void clearAll() {
-        String sql = "DELETE from reviews";
+        String sql = "DELETE from departments";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql).executeUpdate();
         } catch (Sql2oException ex) {
