@@ -16,8 +16,8 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-         String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+         String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:Database/create.sql'";
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "H@mmert0n-25%");
 
         departmentsDao = new sql2oDepartmentsDao(sql2o);
         employeesDao = new sql2oEmployeesDao(sql2o);

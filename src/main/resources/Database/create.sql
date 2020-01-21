@@ -1,5 +1,7 @@
 SET MODE PostgreSQL;
 
+
+
 CREATE TABLE IF NOT EXISTS Departments (
 
  department_name VARCHAR;
@@ -14,12 +16,14 @@ CREATE TABLE IF NOT EXISTS Employees (
  position_in_company VARCHAR;
  employee_id int;
  role VARCHAR;
- department VARCHAR
+ department VARCHAR;
+ id int
+ );
 
 CREATE TABLE IF NOT EXISTS Departments_employee (
 id int PRIMARY KEY auto_increment,
 department_id INTEGER,
- employee_id
+ employee_id int
 
 );
 
