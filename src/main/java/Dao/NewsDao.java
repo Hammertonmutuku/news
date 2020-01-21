@@ -1,5 +1,6 @@
 package Dao;
 
+import models.Departments;
 import models.News;
 
 import java.util.List;
@@ -7,9 +8,12 @@ import java.util.List;
 public interface NewsDao {
     //create
     void add(News news);
+    void addDepartmentsToNews(News news, Departments departments);
 
     //read
     List<News> getAll();
+    List<Departments> getAllDepartments(int departments_id);
+
 
 
 
