@@ -10,7 +10,7 @@ public interface EmployeesDao {
     void add(Employees employees);
     void addEmployeesToDepartments(Employees employees, Departments departments);
     //read
-    List<Employees> getAll();
+    List<Employees>getAll();
     List<Departments>getAllDepartmentsForEmployees(int department_id);
 
 

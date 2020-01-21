@@ -1,9 +1,6 @@
 SET MODE PostgreSQL;
 
-
-
 CREATE TABLE IF NOT EXISTS Departments (
-
  department_name VARCHAR;
  department_description VARCHAR;
  department_id int;
