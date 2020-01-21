@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS Departments (
 
  department_name VARCHAR;
  department_description VARCHAR;
- number of employees int
+ department_id int;
+ number_of_employees int;
+ id int;
 );
 
 CREATE TABLE IF NOT EXISTS Employees (

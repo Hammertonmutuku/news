@@ -1,7 +1,5 @@
+import Dao.*;
 import com.google.gson.Gson;
-import dao.Sql2oDepartmentsDao;
-import dao.sql2oEmployeesDao;
-import dao.sql2oNewsDao;
 import models.Departments;
 import models.News;
 import models.Employees;
@@ -11,4 +9,31 @@ import static spark.Spark.*;
 
 public class App {
 
+    public static  void main(String[] args) {
+        sql2oDepartmentsDao departmentsDao;
+        sql2oEmployeesDao employeesDao;
+        sql2oNewsDao newsDao;
+        Connection conn;
+        Gson gson = new Gson();
+
+         String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        Sql2o sql2o = new Sql2o(connectionString, "", "");
+
+        departmentsDao = new sql2oDepartmentsDao(sql2o);
+        employeesDao = new sql2oEmployeesDao(sql2o);
+        newsDao = new sql2oNewsDao(sql2o);
+        conn = sql2o.open();
+        post("/departments/new", "application/json",(req, res) -> {
+            Departments departments = gson.fromJson(req.body(), Departments.class);
+            departmentsDao.add(departments);
+            res.status(201);
+            res.type("application/json");
+            return gson.toJson(departments);
+        });
+
+        get("/departments", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(departmentsDao.getAll());
+        });
+    }
 }
