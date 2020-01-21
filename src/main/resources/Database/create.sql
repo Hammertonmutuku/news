@@ -23,11 +23,12 @@ department_id INTEGER,
 
 CREATE TABLE IF NOT EXISTS News (
  general_news VARCHAR;
- department_news VARCHAR
+ department_news VARCHAR;
+ news_id int
 );
 
 CREATE TABLE IF NOT EXISTS Department_news (
 id int  Primary key auto_increment
 department_id INTEGER,
-d INTEGER
+news_id INTEGER
 );

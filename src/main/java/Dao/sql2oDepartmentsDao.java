@@ -50,11 +50,11 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
     }
     @Override
     public void addDepartmentsToNews(Departments departments, News news) {
-        String sql = "INSERT INTO departments_news( departments_id, id) VALUES (: department_id, :id)";
+        String sql = "INSERT INTO departments_news( departments_id, department_news) VALUES (: department_id, :department_news)";
         try (Connection con = sql2o.open())  {
             con.createQuery(sql)
                     .addParameter("departments_id", departments.getId())
-                    .addParameter("id", news.getId())
+                    .addParameter("id", news.getNews_id())
                     .executeUpdate();
         }catch (Sql2oException ex) {
             System.out.println(ex);
@@ -85,20 +85,20 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
     }
 
     @Override
-    public List<News> GetAllNewsByDepartments (String Department_news){
+    public List<News> GetAllNewsByDepartments (String department_news){
        ArrayList <News> news = new ArrayList<>();
-        String joinQuery = "SELECT id FROM departments_news WHERE id= :id";
+        String joinQuery = "SELECT department_id FROM departments_news WHERE department_news= :department_news";
 
         try (Connection con = sql2o.open()) {
-            List<Integer> allEmployees_Ids = con.createQuery(joinQuery)
-                    .addParameter("departments_Id", departments_id)
-                    .executeAndFetch(Integer.class); //what is happening in the lines above?
-            for (Integer employees_Id : allEmployees_Ids){
-                String employeesQuery = "SELECT * FROM employees WHERE id = :employees_Id";
-                employees.add(
-                        con.createQuery(employeesQuery)
-                                .addParameter("employees_Id", employees_Id)
-                                .executeAndFetchFirst(Employees.class));
+            List<String> allDepartment_news = con.createQuery(joinQuery)
+                    .addParameter("department_news", department_news)
+                    .executeAndFetch(String.class); //what is happening in the lines above?
+            for (String Department_news : allDepartment_news){
+                String newsQuery = "SELECT * FROM employees WHERE id = :department_news";
+                news.add(
+                        con.createQuery(newsQuery)
+                                .addParameter("department_news", department_news )
+                                .executeAndFetchFirst(News.class));
             } //why are we doing a second sql query - set?
         } catch (Sql2oException ex){
             System.out.println(ex);
