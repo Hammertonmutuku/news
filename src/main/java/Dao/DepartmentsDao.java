@@ -14,7 +14,7 @@ public interface DepartmentsDao {
 
     //read
     List<Departments> getAll();
-    List<Employees>GetAllEmployees(int employees_id);
+    List<Employees>GetAllEmployeesByDepartments(int departments_id);
     List<News>GetAllNewsByDepartments (String Department_news);
 
     //update

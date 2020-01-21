@@ -37,22 +37,73 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
 
     @Override
     public void  addDepartmentsToEmployees(Departments departments, Employees employees) {
+        String sql = "INSERT INTO departments_employees( departments_id, employees_id) VALUES (: department_id, :employees_id)";
+        try (Connection con = sql2o.open())  {
+            con.createQuery(sql)
+                    .addParameter("departments_id", departments.getId())
+                    .addParameter("employees_id", employees.getId())
+                    .executeUpdate();
+        }catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
 
     }
     @Override
     public void addDepartmentsToNews(Departments departments, News news) {
-
+        String sql = "INSERT INTO departments_news( departments_id, id) VALUES (: department_id, :id)";
+        try (Connection con = sql2o.open())  {
+            con.createQuery(sql)
+                    .addParameter("departments_id", departments.getId())
+                    .addParameter("id", news.getId())
+                    .executeUpdate();
+        }catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
-    public List <Employees> GetAllEmployees (int employees_id) {
-        List <Employees> employees = new ArrayList<>();
+    public List <Employees> GetAllEmployeesByDepartments (int departments_id) {
+        ArrayList <Employees> employees = new ArrayList<>();
+
+        String joinQuery = "SELECT employees_id FROM departments_employees WHERE departments_id= :departments_id";
+
+        try (Connection con = sql2o.open()) {
+            List<Integer> allEmployees_Ids = con.createQuery(joinQuery)
+                    .addParameter("departments_Id", departments_id)
+                    .executeAndFetch(Integer.class); //what is happening in the lines above?
+            for (Integer employees_Id : allEmployees_Ids){
+                String employeesQuery = "SELECT * FROM employees WHERE id = :employees_Id";
+                employees.add(
+                        con.createQuery(employeesQuery)
+                                .addParameter("employees_Id", employees_Id)
+                                .executeAndFetchFirst(Employees.class));
+            } //why are we doing a second sql query - set?
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
         return employees;
     }
 
     @Override
     public List<News> GetAllNewsByDepartments (String Department_news){
-       List <News> news = new ArrayList<>();
+       ArrayList <News> news = new ArrayList<>();
+        String joinQuery = "SELECT id FROM departments_news WHERE id= :id";
+
+        try (Connection con = sql2o.open()) {
+            List<Integer> allEmployees_Ids = con.createQuery(joinQuery)
+                    .addParameter("departments_Id", departments_id)
+                    .executeAndFetch(Integer.class); //what is happening in the lines above?
+            for (Integer employees_Id : allEmployees_Ids){
+                String employeesQuery = "SELECT * FROM employees WHERE id = :employees_Id";
+                employees.add(
+                        con.createQuery(employeesQuery)
+                                .addParameter("employees_Id", employees_Id)
+                                .executeAndFetchFirst(Employees.class));
+            } //why are we doing a second sql query - set?
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+
        return news;
     }
    /* @Override
