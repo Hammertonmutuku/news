@@ -16,7 +16,7 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
 
     @Override
     public void add(Departments departments) {
-        String sql = "INSERT INTO departments( department_name, department_description, number_of_employees) VALUES (:department_name :department_description :number_of_employees)";
+        String sql = "INSERT INTO departments( department_name, department_description, number_of_employees,  department_id) VALUES (:department_name, :department_description, :number_of_employees :department_id)";
         try(Connection con  = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(departments)
@@ -54,7 +54,7 @@ public class sql2oDepartmentsDao implements DepartmentsDao {
         try (Connection con = sql2o.open())  {
             con.createQuery(sql)
                     .addParameter("departments_id", departments.getId())
-                    .addParameter("id", news.getNews_id())
+                    .addParameter("id", news.getId())
                     .executeUpdate();
         }catch (Sql2oException ex) {
             System.out.println(ex);

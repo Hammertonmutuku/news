@@ -31,9 +31,34 @@ public class App {
             return gson.toJson(departments);
         });
 
+        post("/employees/new", "application/json",(req, res) -> {
+            Employees employees = gson.fromJson(req.body(), Employees.class);
+            employeesDao.add(employees);
+            res.status(201);
+            res.type("application/json");
+            return gson.toJson(employees);
+        });
+        post("/news/new", "application/json",(req, res) -> {
+            News news = gson.fromJson(req.body(), News.class);
+            newsDao.add(news);
+            res.status(201);
+            res.type("application/json");
+            return gson.toJson(news);
+        });
         get("/departments", "application/json", (req, res) -> {
             res.type("application/json");
             return gson.toJson(departmentsDao.getAll());
+        });
+        get("/employees", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(departmentsDao.getAll());
+        });
+        get("/news", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(departmentsDao.getAll());
+        });
+        after((req, res) ->{
+            res.type("application/json");
         });
     }
 }

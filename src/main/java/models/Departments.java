@@ -13,7 +13,6 @@ public class Departments {
         this.department_description = department_description;
         this.number_of_employees = number_of_employees;
         this.department_id = department_id;
-        this.id = id;
     }
 
     public String getDepartment_name() {

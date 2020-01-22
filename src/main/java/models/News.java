@@ -4,7 +4,7 @@ public class News {
     /* name, position in the company, their roles;  */
     private String general_news;
     private String department_news;
-    private int news_id;
+    private int id;
 
 
     public News(String general_news, String department_news) {
@@ -32,11 +32,11 @@ public class News {
         this.department_news = department_news;
     }
 
-    public int getNews_id() {
-        return news_id;
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
-        this.news_id = news_id;
+        this.id = id;
     }
 }
